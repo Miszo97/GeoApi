@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from geo_api.models import IPGeoData
+
+admin.site.register(IPGeoData)
