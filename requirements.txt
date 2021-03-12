@@ -2,3 +2,5 @@ django
 djangorestframework
 gunicorn
 django-on-heroku
+djangorestframework-simplejwt
+requests
