@@ -60,7 +60,7 @@ class Register(APIView):
         user.user_permissions.set(permissions)
 
         return_message = json.dumps({'details': 'created'})
-        return Response(return_message, status=status.HTTP_200_OK)
+        return Response(return_message, status=status.HTTP_201_CREATED)
 
 
 class GeoDataDetail(APIView):
