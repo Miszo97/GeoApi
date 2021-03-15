@@ -9,7 +9,15 @@ from geo_api.models import IPGeoData
 
 
 class RegisterViewTest(TestCase):
-    pass
+    def test_correct_payload(self):
+        res = self.client.post(
+            '/register', {'username': 'jack', 'password': 'orange'}, format='json')
+        self.assertEqual(res.status_code, status.HTTP_201_CREATED)
+
+    def test_incorrect_payload(self):
+        res = self.client.post(
+            '/register', {'usernxxame': 'jack', 'password': 'orange'}, format='json')
+        self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
 
 
 class GeoDataViewTest(TestCase):
