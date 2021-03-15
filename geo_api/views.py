@@ -46,7 +46,7 @@ class Register(APIView):
             return Response(error_message, status=status.HTTP_400_BAD_REQUEST)
 
         user_already_exists = User.objects.filter(
-            username=username, password=password).exists()
+            username=username).exists()
 
         if user_already_exists:
             error_message = json.dumps({'details': 'user already exists'})
