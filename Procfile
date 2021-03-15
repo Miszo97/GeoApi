@@ -1,1 +1,1 @@
-web: gunicorn geo_api.wsgi --log-level debug
+web: gunicorn GeoApi.wsgi --log-level debug
