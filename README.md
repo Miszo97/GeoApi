@@ -25,7 +25,7 @@ API is protected with a JWT token. Get one with:
 curl -i -X POST \
    -H "Content-Type:application/json" \
    -d \
-'{"jacksparrow", "password": "U3CdUw"}' \
+'{"username": "jacksparrow", "password": "U3CdUw"}' \
  'http://localhost:8000/api/token/'
 ```
 
