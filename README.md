@@ -1,6 +1,8 @@
 # GeoApi
 REST API for storing address geolocation data
 
+![http request](http_request.png?raw=true "Http request")
+
 Heroku application:
 ```
 https://still-dusk-81333.herokuapp.com
