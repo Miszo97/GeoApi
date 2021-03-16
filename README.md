@@ -8,6 +8,11 @@ Heroku application:
 https://still-dusk-81333.herokuapp.com
 ```
 
+Docker image:
+```
+https://hub.docker.com/repository/docker/kol478/geo-api
+```
+
 ## Register your account:
 
 Before accessing data or creating new data you have to register your account.
