@@ -25,7 +25,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ["CV_DEBUG"] if "CV_DEBUG" in os.environ else False
+if "CV_DEBUG" in os.environ:
+    env = os.environ["CV_DEBUG"]
+    DEBUG = True if env == 'True' else False
+else:
+    DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
