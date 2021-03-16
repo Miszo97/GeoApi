@@ -21,6 +21,7 @@ class IpStackAPI():
     def get_geo_data(self, ip):
         url = f'http://api.ipstack.com/{ip}?access_key={self.api_key}&fields=main'
         response = requests.get(url)
+        response.raise_for_status()
         response_json = json.loads(response.text)
 
         return response_json
@@ -104,16 +105,20 @@ class GeoData(APIView):
 
         ip = getIP(address)
 
-        if IPGeoData.objects.filter(ip=ip).exists():
-            error_message = json.dumps({'details': 'ip already exists'})
-            return Response(error_message, status=status.HTTP_400_BAD_REQUEST)
-
         if ip is False:
             error_message = json.dumps({'details': 'incorrect address'})
             return Response(error_message, status=status.HTTP_400_BAD_REQUEST)
 
+        if IPGeoData.objects.filter(ip=ip).exists():
+            error_message = json.dumps({'details': 'ip already exists'})
+            return Response(error_message, status=status.HTTP_400_BAD_REQUEST)
+
         api = IpStackAPI()
-        response_json = api.get_geo_data(ip)
+        try:
+            response_json = api.get_geo_data(ip)
+        except requests.exceptions.RequestException:
+            error_message = json.dumps({'details': 'internal server error'})
+            return Response(error_message, status=status.status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         serializer = IPGeoDataSerializer(data=response_json)
         if serializer.is_valid():
