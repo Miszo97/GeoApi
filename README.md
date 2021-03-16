@@ -35,7 +35,7 @@ curl -i -X POST \
 '{"username": "jacksparrow", "password": "U3CdUw"}' \
  'http://localhost:8000/api/token/'
 ```
-When this short-lived access token expires, you can get another one with an obtained refreshed token
+When this short-lived access token expires, you can get another one with an obtained refreshed token.
 
 ```
 curl -i -X POST \
