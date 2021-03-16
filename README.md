@@ -37,14 +37,14 @@ curl -i -X POST \
 ```
 curl -i -X GET \
    -H "Authorization:Bearer TOKEN" \
- 'http://localhost:8000/addresses'
+ 'http://localhost:8000/addresses/'
 ```
 
 ### Get address's details:
 ```
 curl -i -X GET \
    -H "Authorization:Bearer TOKEN" \
-'http://localhost:8000/addresses/www.google.com'
+'http://localhost:8000/addresses/www.google.com/'
 ```
 ### Create new address geo data:
 ```
@@ -54,7 +54,7 @@ curl -i -X POST \
    -d \
 '{"address": "www.google.com"}
 ' \
- 'http://localhost:8000/addresses'
+ 'http://localhost:8000/addresses/'
  ```
 
 ### Delete address geo data:
@@ -62,5 +62,5 @@ curl -i -X POST \
 ```
 curl -i -X DELETE \
    -H "Authorization:Bearer TOKEN" \
- 'http://localhost:8000/addresses/51.83.237.191'
+ 'http://localhost:8000/addresses/51.83.237.191/'
 ```

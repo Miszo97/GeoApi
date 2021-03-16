@@ -6,5 +6,5 @@ app_name = 'geo_api'
 
 urlpatterns = [
     path('', GeoData.as_view(), name='geo_data'),
-    path('/<address>', GeoDataDetail.as_view(), name='geo_data_detail'),
+    path('<address>/', GeoDataDetail.as_view(), name='geo_data_detail'),
 ]
